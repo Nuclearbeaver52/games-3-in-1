@@ -1,0 +1,10 @@
+﻿<Window x:Class="MyApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Главное меню" Height="300" Width="300">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Content="Кроссворд" Width="200" Margin="0,5" Click="OpenCrossword_Click"/>
+        <Button Content="Крот" Width="200" Margin="0,5" Click="OpenImageGame_Click"/>
+        <Button Content="Судоку" Width="200" Margin="0,5" Click="OpenSudoku_Click"/>
+    </StackPanel>
+</Window>
