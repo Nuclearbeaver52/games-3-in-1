@@ -1,10 +1,51 @@
 ﻿<Window x:Class="MyApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Главное меню" Height="300" Width="300">
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <Button Content="Кроссворд" Width="200" Margin="0,5" Click="OpenCrossword_Click"/>
-        <Button Content="Крот" Width="200" Margin="0,5" Click="OpenImageGame_Click"/>
-        <Button Content="Судоку" Width="200" Margin="0,5" Click="OpenSudoku_Click"/>
-    </StackPanel>
+        Title="Главное меню" Height="400" Width="350" 
+        WindowStartupLocation="CenterScreen"
+        Background="#FF2D2D30"
+        KeyDown="Window_KeyDown">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+
+            <!-- Ресурсы StackPanel -->
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="220"/>
+                    <Setter Property="Height" Value="45"/>
+                    <Setter Property="Margin" Value="0,5"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="#FF007ACC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="8" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+
+            <!-- Заголовок -->
+            <TextBlock Text="Главное меню" FontSize="24" FontWeight="Bold" Foreground="White" 
+                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <!-- Основные кнопки -->
+            <Button Content="Кроссворд" Click="OpenCrossword_Click"/>
+            <Button Content="Крот" Background="#FF00BC70" Click="OpenImageGame_Click"/>
+            <Button Content="Судоку" Background="#FFFFA500" Click="OpenSudoku_Click"/>
+
+            <!-- Секретная кнопка -->
+            <Button x:Name="SecretButton" Content="Секретная кнопка" Background="#FF8E44AD" 
+                    Visibility="Collapsed" Click="SecretButton_Click"/>
+            
+        </StackPanel>
+    </Grid>
 </Window>

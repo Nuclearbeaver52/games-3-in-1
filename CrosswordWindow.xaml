@@ -1,108 +1,37 @@
-﻿<Window x:Class="SimpleCrossword.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="MyApp.CrosswordWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Простой кроссворд" Height="500" Width="600">
+        Title="CrosswordWindow" Height="720" Width="980" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="320"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-    <Window.Resources>
-        <Style x:Key="CellStyle" TargetType="TextBox">
-            <Setter Property="Width" Value="30"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Margin" Value="2"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="MaxLength" Value="1"/>
-        </Style>
-    </Window.Resources>
+        <TextBlock Text="Кроссворд (вводите только русские заглавные буквы)"
+                   Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold" Margin="0 0 0 10"/>
 
-    <StackPanel Background="LightCyan">
-        <!-- Заголовок -->
-        <TextBlock Text="КРОССВОРД" 
-                   FontSize="20" FontWeight="Bold" 
-                   HorizontalAlignment="Center" Margin="10"/>
+        <!-- Игровое поле -->
+        <UniformGrid x:Name="Board" Grid.Row="1" Rows="10" Columns="10" Margin="5"/>
 
-        
-
-        <!-- Сетка кроссворда -->
-        <Border BorderBrush="Black" BorderThickness="2" 
-                Background="White" Margin="20" Padding="10">
-            <StackPanel>
-                <!-- Строка 1: КОШКА -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock Text="1." VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="c11" Style="{StaticResource CellStyle}" Tag="К"/>
-                    <TextBox x:Name="c12" Style="{StaticResource CellStyle}" Tag="О"/>
-                    <TextBox x:Name="c13" Style="{StaticResource CellStyle}" Tag="Ш"/>
-                    <TextBox x:Name="c14" Style="{StaticResource CellStyle}" Tag="К"/>
-                    <TextBox x:Name="c15" Style="{StaticResource CellStyle}" Tag="А"/>
-                </StackPanel>
-
-                <!-- Строка 2: СОБАКА -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <TextBlock Text="2." VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="c21" Style="{StaticResource CellStyle}" Tag="С"/>
-                    <TextBox x:Name="c22" Style="{StaticResource CellStyle}" Tag="О"/>
-                    <TextBox x:Name="c23" Style="{StaticResource CellStyle}" Tag="Б"/>
-                    <TextBox x:Name="c24" Style="{StaticResource CellStyle}" Tag="А"/>
-                    <TextBox x:Name="c25" Style="{StaticResource CellStyle}" Tag="К"/>
-                    <TextBox x:Name="c26" Style="{StaticResource CellStyle}" Tag="А"/>
-                </StackPanel>
-
-                <!-- Строка 3: ДОМ -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <TextBlock Text="3." VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="c31" Style="{StaticResource CellStyle}" Tag="Д"/>
-                    <TextBox x:Name="c32" Style="{StaticResource CellStyle}" Tag="О"/>
-                    <TextBox x:Name="c33" Style="{StaticResource CellStyle}" Tag="М"/>
-                </StackPanel>
-
-                <!-- Строка 4: ЛУНА -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <TextBlock Text="4." VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="c41" Style="{StaticResource CellStyle}" Tag="Л"/>
-                    <TextBox x:Name="c42" Style="{StaticResource CellStyle}" Tag="У"/>
-                    <TextBox x:Name="c43" Style="{StaticResource CellStyle}" Tag="Н"/>
-                    <TextBox x:Name="c44" Style="{StaticResource CellStyle}" Tag="А"/>
-                </StackPanel>
-
-                <!-- Строка 5: РЕКА -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <TextBlock Text="5." VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="c51" Style="{StaticResource CellStyle}" Tag="Р"/>
-                    <TextBox x:Name="c52" Style="{StaticResource CellStyle}" Tag="Е"/>
-                    <TextBox x:Name="c53" Style="{StaticResource CellStyle}" Tag="К"/>
-                    <TextBox x:Name="c54" Style="{StaticResource CellStyle}" Tag="А"/>
-                </StackPanel>
-
-                <!-- Строка 6: СНЕГ -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <TextBlock Text="6." VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="c61" Style="{StaticResource CellStyle}" Tag="С"/>
-                    <TextBox x:Name="c62" Style="{StaticResource CellStyle}" Tag="Н"/>
-                    <TextBox x:Name="c63" Style="{StaticResource CellStyle}" Tag="Е"/>
-                    <TextBox x:Name="c64" Style="{StaticResource CellStyle}" Tag="Г"/>
-                </StackPanel>
-            </StackPanel>
-        </Border>
-
-        <!-- Вопросы -->
-        <StackPanel Margin="20">
-            <TextBlock Text="Вопросы:" FontWeight="Bold" Margin="0,0,0,5"/>
-            <TextBlock Text="1. Домашний питомец (5 букв)"/>
-            <TextBlock Text="2. Лучший друг человека (6 букв)"/>
-            <TextBlock Text="3. Место жительства (3 буквы)"/>
-            <TextBlock Text="4. Ночное светило (4 буквы)"/>
-            <TextBlock Text="5. Водный поток (4 буквы)"/>
-            <TextBlock Text="6. Зимнее покрывало (4 буквы)"/>
+        <!-- Подсказки -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="12,0,0,0">
+            <TextBlock Text="Подсказки:" FontWeight="Bold" FontSize="16" Margin="0 0 0 6"/>
+            <ItemsControl x:Name="Clues" />
+            <Separator Margin="0 8 0 8"/>
+            <TextBlock x:Name="Status" Foreground="Blue"/>
         </StackPanel>
 
         <!-- Кнопки -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Проверить" Click="Check_Click" Padding="10,5" Margin="5"/>
-            <Button Content="Очистить" Click="Clear_Click" Padding="10,5" Margin="5"/>
-            <Button Content="Показать ответы" Click="ShowAnswers_Click" Padding="10,5" Margin="5"/>
-            <Button Content="Выход" Click="Exit_Click" Padding="10,5" Margin="5"/>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
+            <Button Content="Проверить" Margin="5" Width="120" Click="Check_Click"/>
+            <Button Content="Очистить" Margin="5" Width="120" Click="Clear_Click"/>
+            <Button Content="Меню" Margin="5" Width="120" Click="Back_Click"/>
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </Window>

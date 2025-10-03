@@ -55,10 +55,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Flappy Bird.xaml.cs">
+      <DependentUpon>Flappy Bird.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MarioWindow.xaml.cs">
+      <DependentUpon>MarioWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MinesweeperWindow.xaml.cs">
+      <DependentUpon>MinesweeperWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PacmanWindow.xaml.cs">
+      <DependentUpon>PacmanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PingPongWindow.xaml.cs">
+      <DependentUpon>PingPongWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretGamesWindow.xaml.cs">
+      <DependentUpon>SecretGamesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SnakeWindow.xaml.cs">
+      <DependentUpon>SnakeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SudokuWindow.xaml.cs">
       <DependentUpon>SudokuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TetrisWindow.xaml.cs">
+      <DependentUpon>TetrisWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="CrosswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flappy Bird.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,7 +112,35 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MarioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MinesweeperWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PacmanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PingPongWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretGamesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SnakeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SudokuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TetrisWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

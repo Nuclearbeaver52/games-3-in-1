@@ -107,18 +107,42 @@ namespace MyApp
 
         private void MoleTimer_Tick(object sender, EventArgs e)
         {
-            if (timeLeft == 30) return; // фиксация двух кротов
+            if (timeLeft <= 0)
+            {
+                ClearActiveMoles(); // убираем всех кротов
+                return; // дальше не обрабатываем
+            }
 
             ClearActiveMoles();
 
-            int r = random.Next(0, 3);
-            int c = random.Next(0, 3);
-            activeMoles[0] = (r, c);
-            activeMoles[1] = (-1, -1);
+            if (timeLeft <= 30)
+            {
+                // Два крота
+                activeMoles[0] = (random.Next(0, 3), random.Next(0, 3));
+                do
+                {
+                    activeMoles[1] = (random.Next(0, 3), random.Next(0, 3));
+                } while (activeMoles[1] == activeMoles[0]);
 
-            buttons[r, c].Content = "🐹"; // появление крота
-            totalMoles++;
+                buttons[activeMoles[0].Item1, activeMoles[0].Item2].Content = "🐹";
+                buttons[activeMoles[1].Item1, activeMoles[1].Item2].Content = "🐹";
+
+                totalMoles += 2;
+            }
+            else
+            {
+                // Один крот
+                int r = random.Next(0, 3);
+                int c = random.Next(0, 3);
+                activeMoles[0] = (r, c);
+                activeMoles[1] = (-1, -1);
+
+                buttons[r, c].Content = "🐹";
+                totalMoles++;
+            }
         }
+
+
 
         private void ClearActiveMoles()
         {

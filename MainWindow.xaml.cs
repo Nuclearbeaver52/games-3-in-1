@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace MyApp
 {
@@ -11,7 +12,7 @@ namespace MyApp
 
         private void OpenCrossword_Click(object sender, RoutedEventArgs e)
         {
-            var crosswordWindow = new SimpleCrossword.MainWindow();
+            var crosswordWindow = new MyApp.CrosswordWindow();
             crosswordWindow.Closed += (s, args) => this.Show();
             crosswordWindow.Show();
             this.Hide();
@@ -30,6 +31,23 @@ namespace MyApp
             var window = new SudokuWindow();
             window.Show();
             this.Hide();
+        }
+        private void SecretButton_Click(object sender, RoutedEventArgs e)
+        {
+            SecretGamesWindow secretGames = new SecretGamesWindow();
+            secretGames.Show();
+        }
+                private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Ctrl + S показывает секретную кнопку
+            if (e.Key == Key.S && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                SecretButton.Visibility = Visibility.Visible;
+            }
         }
     }
 }
